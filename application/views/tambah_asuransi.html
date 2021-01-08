@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tambah Data Pegawai</title>
+
+<?php $this->load->view('page_header_2')?>
+
+<div class="main">
+  <div class="container" style="width: 100%">
+    <div class="row">
+      <div class="col-sm d-flex justify-content-start">
+        <h1 class="judul">Tambah Data Pegawai</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <?php
+      $id = 0;
+      $ci =& get_instance();
+      $ci->load->model('detail_pegawai_model');
+      $data = $ci->detail_pegawai_model->get_all_insurance();
+      foreach($data as $d){
+        $id = $d['INSURANCE_ID'] + 1;
+      }
+    ?>
+    <h1>Tambah Data Asuransi</h1>
+  
+    <form method="post" action="<?= base_url('index.php/beranda_control/add_insurance_data')?>">
+      <!-- Buat tombol untuk menabah form data -->
+      <button type="button" id="btn-tambah-form">Tambah Slot Asuransi</button>
+      <button type="button" id="btn-reset-form">Reset Form</button><br><br>
+      
+      <b>Slot Asuransi 1 :</b>
+      <input type="text" name="insurance_id[]" value="<?= $id?>" hidden>
+      <table>
+        <tr>
+          <td>Nama Asuransi</td>
+          <td><input type="text" name="insurance_name[]" required></td>
+        </tr>
+      </table>
+      <br><br>
+
+      <div id="insert-form"></div>
+      
+      <hr>
+      <input type="submit" value="Simpan">
+    </form>
+    
+    <!-- Kita buat textbox untuk menampung jumlah data form -->
+    <input type="hidden" id="jumlah-form" value="1">
+    
+    <script>
+    $(document).ready(function(){
+      $("#btn-tambah-form").click(function(){
+        var jumlah = parseInt($("#jumlah-form").val());
+        var nextform = jumlah + 1;
+        
+        $("#insert-form").append("<b>Slot Asuransi " + nextform + " :</b>" +
+          "<table>" +
+          "<input type='text' name='insurance_id[]'' value='<?php $id++?><?= $id?>' hidden>"+
+          "<tr>" +
+          "<td>Nama Asuransi</td>" +
+          "<td><input type='text' name='insurance_name[]' required></td>" +
+          "</tr>" +
+          "</table>" +
+          "<br><br>");
+        
+        $("#jumlah-form").val(nextform);
+      });
+      
+      $("#btn-reset-form").click(function(){
+        $("#insert-form").html("");
+        $("#jumlah-form").val("1");
+      });
+    });
+    </script>
+    
+  </div>
+
+</body>
+</html> 

@@ -1,0 +1,102 @@
+public function edit_kesehatan_pegawai()
+	{
+		$status = $_POST['status'];
+		$status2 = $_POST['insurance_id'];
+		$status3 = $_POST['bpjs_id'];
+		date_default_timezone_set('Asia/Jakarta');
+		$date = date('Y-m-d H:i:s', time());
+		
+		$data1 = [
+	        "BPJS_ID" => $_POST['bpjs_id'],
+	        "KELAS_BPJS" => $_POST['kelas_bpjs'],
+	        "TANGGAL_JOIN_BPJS" => $_POST['tanggal_join_bpjs'],
+    	];
+
+    	if ($status2 == ""){
+    		if ($status3 == ""){
+    			$data2 = [
+		        "EMPLOYEE_ID" => $_POST['id'],
+		        "INSURANCE_ID" => null,
+		        "NO_POLIS_PEGAWAI" => null,
+		        "UPDATE_TERAKHIR" => $date
+    		];
+    		} else {
+    			$data2 = [
+		        "EMPLOYEE_ID" => $_POST['id'],
+		        "INSURANCE_ID" => null,
+		        "NO_POLIS_PEGAWAI" => null,
+		        "BPJS_ID" => $_POST['bpjs_id'],
+		        "UPDATE_TERAKHIR" => $date
+    		];
+    		}
+    	} else {
+    		$data2 = [
+		        "EMPLOYEE_ID" => $_POST['id'],
+		        "INSURANCE_ID" => $_POST['insurance_id'],
+		        "NO_POLIS_PEGAWAI" => $_POST['no_polis_pegawai'],
+		        "BPJS_ID" => $_POST['bpjs_id'],
+		        "UPDATE_TERAKHIR" => $date
+    		];
+    	}
+		
+
+    	if ($status == "baru"){
+    		if($status3 != ""){
+    			$this->detail_pegawai_model->input_baru_bpjs_pegawai($data1,$data2);
+    			redirect("detail_pegawai_control/detail/". $data2['EMPLOYEE_ID']);
+    		} else {
+    			$this->detail_pegawai_model->update_insurance_only($data2);
+    			redirect("detail_pegawai_control/detail/". $data2['EMPLOYEE_ID']);
+    		}
+    	} else {
+    		if($status3 != ""){
+    			$this->detail_pegawai_model->input_baru_bpjs_pegawai($data1,$data2);
+    			redirect("detail_pegawai_control/detail/". $data2['EMPLOYEE_ID']);
+    		} else {
+    			$this->detail_pegawai_model->update_kesehatan_pegawai($data1,$data2);
+    			redirect("detail_pegawai_control/detail/". $data2['EMPLOYEE_ID']);
+    		}
+    	}
+	}
+
+
+    public function edit_kesehatan_pegawai()
+    {
+        $status = $_POST['status'];
+        $status2 = $_POST['insurance_id'];
+        $status3 = $_POST['bpjs_id'];
+        echo $status3;
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d H:i:s', time());
+        
+        $data1 = [
+            "BPJS_ID" => $_POST['bpjs_id'],
+            "KELAS_BPJS" => $_POST['kelas_bpjs'],
+            "TANGGAL_JOIN_BPJS" => $_POST['tanggal_join_bpjs'],
+        ];
+
+        if ($status2 == ""){
+            $data2 = [
+                "EMPLOYEE_ID" => $_POST['id'],
+                "INSURANCE_ID" => null,
+                "BPJS_ID" => $_POST['bpjs_id'],
+                "UPDATE_TERAKHIR" => $date
+            ];
+        } else {
+            $data2 = [
+                "EMPLOYEE_ID" => $_POST['id'],
+                "INSURANCE_ID" => $_POST['insurance_id'],
+                "BPJS_ID" => $_POST['bpjs_id'],
+                "UPDATE_TERAKHIR" => $date
+            ];
+        }
+        
+
+        if ($status == "baru"){
+            // $this->detail_pegawai_model->input_baru_bpjs_pegawai($data1,$data2);
+            // redirect("detail_pegawai_control/detail/". $data2['EMPLOYEE_ID']);
+        } else {
+            // $this->detail_pegawai_model->update_kesehatan_pegawai($data1,$data2);
+            // redirect("detail_pegawai_control/detail/". $data2['EMPLOYEE_ID']);
+        }
+    }
