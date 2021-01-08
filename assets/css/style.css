@@ -1,0 +1,280 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #F4F2E9;
+}
+
+.btnPrintAll{
+  background-color: #1078CA;
+  border-style: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btnPrintAll:hover{
+  background-color: #115E9A;
+}
+
+.btnPrintSel{
+  background-color: #DE494E;
+  border-style: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btnPrintSel:hover{
+  background-color: #D61C22;
+}
+
+.btnCsv{
+  background-color: #107C42;
+  border-style: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btnCsv:hover{
+  background-color: #185C37;
+}
+
+.btnEmpDetail{
+  text-decoration: none;
+  color: #1078CA;
+}
+
+.sidenav-logo{
+  width: 158px; 
+  height: 56px; 
+  left: 21px; 
+  margin-left:21px;
+  margin-right:21px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.sidenav-button{
+  width: 200px;
+  height: auto;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.sidenav-button:hover{
+  background-color: #D61C22;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #DE494E;
+  overflow-x: hidden;
+}
+
+.sidenav a {
+  text-decoration: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  color: #FFFFFF;
+  display: block;
+}
+
+.main {
+  margin-left: 200px;
+  padding: 40px;
+  height: auto;
+}
+
+.judul{
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  color: #D61C22;
+}
+
+.judulin{
+  width: 300px;
+}
+
+.isiKolom{
+  width: 800px;
+}
+
+.subJudul{
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 36px;
+  color: #33333;
+}
+
+.subJudul2{
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 36px;
+  color: #1078CA;
+}
+
+/*@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}*/
+
+.box{
+  width: 1085px;
+  height: auto;
+  left: 240px;
+  top: 110px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.box-judul{
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+
+  /* identical to box height */
+
+  color: #333333;
+  margin-bottom: 30px;
+}
+
+#example{
+  margin-bottom: 50px;
+  font-size: 14px;
+}
+
+.addButton{
+  width: auto;
+  height: 40px;
+  background: #49D198;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.addButton:hover{
+  background:#33BB82;
+}
+
+.laporanButton{
+  height: 40px;
+  width: auto;
+  border-style: none;
+  background: #1078CA;
+  margin-left: 20px;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  
+}
+
+.laporanButton:hover{
+  background:#115E9A;
+}
+
+.editButton{
+  width: 100%;
+  height: 40px;
+  background: #49D198;
+  border-radius: 10px;
+  border-style: none;
+  text-decoration: none;
+  padding-bottom: 20px;
+  color: #ffffff;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.editButton:hover{
+    background: #33BB82;
+}
+
+.overlayForm {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #DE494E;
+  background-color: rgba(0,0,0, 0.3);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlayBox{
+  position: absolute;
+  padding: 30px;
+  margin-left: 125px;
+  margin-right: 125px;
+  margin-top: 50px;
+  margin-bottom: 500px;
+  width: 1100px;
+  height: auto;
+  background: white; 
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.closeButton{
+  width: auto;
+  height: 40px;
+  background: #DE494E;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.closeButton:hover{
+  background: #D61C22;
+}
+
+.form-control:focus{
+  box-shadow: 0 0 10px #FFBABC;
+  border-color: #FFFFFF;
+}
+
+#form{
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
